@@ -1,0 +1,74 @@
+.form-container {
+  width: 550px;
+  height: 650px;
+
+  border: 1px solid #95a0a7;
+  border-radius: 8px;
+  margin: 20px auto;
+  padding-left: 40px;
+  box-shadow: -4px 10px 10px #ffe0b3;
+}
+.form-title {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  letter-spacing: 0.0025em;
+  color: #2a414f;
+  text-align: center;
+}
+
+.form-control label {
+  width: 41px;
+  height: 20px;
+
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.0015em;
+
+  color: #2a414f;
+  display: block;
+  margin-bottom: 10px;
+}
+.form-control {
+  margin-bottom: 20px;
+}
+.form-control input {
+  box-sizing: border-box;
+
+  width: 415px;
+  height: 55px;
+
+  border: 1px solid #95a0a7;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 1.5em;
+}
+.submit-btn {
+  width: 415px;
+  height: 55px;
+
+  background: rgba(255, 153, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 40px;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.0015em;
+
+  color: #0e161a;
+}
+
+.submit-btn:hover {
+  background: rgba(255, 153, 0, 0.6);
+}
+.already {
+  text-align: center;
+}

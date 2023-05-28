@@ -1,20 +1,28 @@
 import React, { useContext, useState } from "react";
-import "./Login.css";
+import "./SignUp.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
-const Login = () => {
+const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
-
-  const { logIn } = useContext(AuthContext);
-  const handleLogin = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    // event.reset();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    const confirm = form.confirm.value;
+    console.log(email, password, confirm);
     setError("");
-    logIn(email, password)
+    if (password !== confirm) {
+      setError("password is not match with confirm password");
+      return;
+    } else if (password.length < 6) {
+      setError("Password length will be minimum 6 character");
+      return;
+    }
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -27,9 +35,9 @@ const Login = () => {
   };
   return (
     <div className="form-container">
-      <h2 className="form-title">Login</h2>
-      <form onSubmit={handleLogin}>
-        <p className="error">{error}</p>
+      <h2 className="form-title">Sign-up</h2>
+      <p className="error">{error}</p>
+      <form onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="email">Email</label>
           <input type="text" name="email" required />
@@ -38,15 +46,21 @@ const Login = () => {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" required />
         </div>
-        <input className="submit-btn" type="submit" value="Login" />
+        <div className="form-control">
+          <label id="confirm-password-label" htmlFor="password">
+            Confirm-password
+          </label>
+          <input type="password" name="confirm" required />
+        </div>
+        <input className="submit-btn" type="submit" value="Sign-up" />
       </form>
-      <p className="already">
+      <p>
         <small>
-          New to ema-jon ? <Link to="/sign-up">Sign up</Link>
+          Al ready have an account ? <Link to="/login">LogIn</Link>
         </small>
       </p>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

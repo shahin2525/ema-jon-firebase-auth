@@ -1,0 +1,7 @@
+#confirm-password-label {
+  width: 150px;
+}
+.error {
+  color: red;
+  font-size: 25px;
+}
