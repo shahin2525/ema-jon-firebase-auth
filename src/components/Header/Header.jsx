@@ -9,8 +9,8 @@ const Header = () => {
   console.log(user);
   const handleLogout = () => {
     logOut()
-      .then(() => {})
-      .then(error);
+      .then((result) => {})
+      .then((error) => console.log(error));
   };
   return (
     <nav className="header">
@@ -22,7 +22,7 @@ const Header = () => {
         <Link to="/login">Login</Link>
         <Link to="/sign-up">Sign up</Link>
         {user && (
-          <span>
+          <span className="header-user">
             {" "}
             welcome {user.email}
             <button onClick={handleLogout}>Sign-out</button>
